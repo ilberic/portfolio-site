@@ -6,6 +6,7 @@ nav
     position: fixed
     top: 0
     width: 100%
+    z-index: 2
 .nav__wrapper
     display: flex
     justify-content: space-between
@@ -18,6 +19,14 @@ nav
     color: white
     position: relative
     cursor: pointer
+    width: 100%
+    text-align: center
+    line-height: 40px
+    margin-top: -7px
+    transition: 0.3s all
+    &:hover
+        font-size: 20px
+        color: $main_color
     &:after
         content: ''
         display: block
@@ -25,8 +34,8 @@ nav
         width: 2px
         height: 16px
         background-color: #fff
-        right: -70px
-        top: 2px
+        right: 5px
+        top: 10px
     &:nth-child(3)
         &:after
             display: none
@@ -46,12 +55,14 @@ nav
     &__logo
         width: 140px;
         height: 116px;
-        background-color: #da2020;  
+        background-color: $main_color 
         display: flex
         justify-content: center
         align-items: center
         font-family: 'Chelsea Market', cursive;
         font-size: 24px
+        z-index: 3
+
 
     
         
