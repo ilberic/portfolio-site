@@ -1,33 +1,40 @@
 window.addEventListener('DOMContentLoaded', function(){
     'use strict';
-    let tabContent = document.querySelectorAll('.tab-content'),
-        tabWrapper = document.querySelector('.nav__wrapper'),
-        tab = document.querySelectorAll('.nav__item');
 
-    function hide (){
-        for(let i = 0; i < tabContent.length; i++){
-            tabContent[i].classList.remove('show');
-            tabContent[i].classList.add('hide');
-        }
-    }
-    function show (b){
-        if(tabContent[b].classList.contains('hide')){
-            tabContent[b].classList.remove('hide');
-            tabContent[b].classList.add('show');
-        }
-    }
-
-    tabWrapper.addEventListener('click',function(event){
-        let target = event.target;
-        if(target && target.classList.contains('nav__item')){
+    //tabItem - сам таб, content - контент таба.
+    function tab (tabItem, content){        
+        let tab = document.querySelectorAll(tabItem),
+        tabContent = document.querySelectorAll(content);
+    
+        function hide (){
             for(let i = 0; i < tab.length; i++){
-                if(target == tab[i]){
-                    hide();
-                    show(i);
-                    break;
-                }
+                tabContent[i].style.display = 'none';
             }
         }
-    });
+    
+        function show (b){
+            tabContent[b].style.display = 'block';
+        }
+        
+        function anim (c){
+            for(let i = 0; i < tab.length; i++){
+                tab[i].classList.remove('active');
+                tab[c].classList.add('active');
+            }
+        }
+
+        anim(0);
+
+        for(let i = 0; i < tab.length; i++){
+            tab[i].addEventListener('click', function(){
+                
+                hide();
+                show(i);
+                anim(i);
+            });
+        }
+    }
+    //параметры подставлять с кавычками и точками.
+    tab('.nav__item', '.tab-content');
 
 });
