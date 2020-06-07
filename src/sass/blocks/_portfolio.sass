@@ -1,30 +1,60 @@
 .portfolio
     min-height: 700px
-    &__bg
-        background: url(../img/bg/portfolio_bg.jpg) center center/cover no-repeat
-        height: 300px
-        width: 100%
-        opacity: 0.8
-    &__wrapper
-        padding: 20px 0
-        display: flex
-        justify-content: space-between
-        align-items: center
-        flex-wrap: wrap
-        &-item
-            box-shadow: 0 0 7px rgba(0, 0, 0, 0.28)
-            width: 300px
-            padding: 10px 5px
-            margin-bottom: 30px
-            &_img
-                height: 300px
-                min-width: 100%  
-                background: url(../img/portfolio/1_mini.jpg) center center/cover no-repeat
-                background-position-y: 0
-                border: 1px solid black
-            &_text
-                color: #000000   
-                font-weight: 300
-                font-size: 20px   
-                text-align: center
-                margin-top: 5px
+.slider__wrapper
+    background-color: #c0bebe
+    margin-top: 100px
+    position: relative
+.slider
+    overflow: scroll
+    width: 700px
+    height: 400px
+    margin-top: 50px
+    position: relative
+    box-shadow: $main_color 0 0 2px
+    margin: 0 auto
+    &__img
+        max-width: 100%
+.prev
+    position: absolute
+    left: 150px
+    top: 50%
+    width: 70px
+    height: 70px
+    transition-delay: border-radius 0.5s
+    border-radius: 0%
+    background-color: #fff
+    font-size: 80px
+    line-height: 70px
+    text-align: center
+    transform: translateY(-50%)
+    
+    &:hover
+        background-color: $main_color
+        opacity: 0.5
+        border-radius: 100%
+        box-shadow: 0 0 10px gray 
+.next
+    position: absolute
+    right: 150px
+    top: 50%
+    width: 70px
+    height: 70px
+    transition-delay: border-radius 0.5s
+    border-radius: 0%
+    background-color: #fff
+    font-size: 80px
+    line-height: 70px
+    text-align: center
+    transform: translateY(-50%)
+    
+    &:hover
+        // background-color: $main_color
+        // opacity: 0.5
+        // border-radius: 100%
+        // box-shadow: 0 0 10px gray 
+        text-shadow: $main_color 0 0 10px
+
+
+
+
+

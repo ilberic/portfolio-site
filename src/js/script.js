@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(){
     'use strict';
-
+    //Tabs
     //tabItem - сам таб, content - контент таба.
     function tab (tabItem, content){        
         let tab = document.querySelectorAll(tabItem),
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function(){
         anim(0);
 
         for(let i = 0; i < tab.length; i++){
-            tab[i].addEventListener('click', function(){
+            tab[i].addEventListener('click', () =>{
                 
                 hide();
                 show(i);
@@ -36,5 +36,38 @@ window.addEventListener('DOMContentLoaded', function(){
     }
     //параметры подставлять с кавычками и точками.
     tab('.nav__item', '.tab-content');
+
+    //slider portfolio
+    let slideIndex = 1,
+        img = document.querySelectorAll('.slider__img'),
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next');
+
+        slidesThrough(slideIndex);
+
+    function slidesThrough (a) {
+        if(slideIndex > img.length + 1) {
+            slideIndex = 1;
+        }
+
+        if(slideIndex < 1)  {
+            slideIndex = img.length +1;
+        }
+        img.forEach((item) => item.style.display = 'none');
+        img[a - 1].style.display = 'block';       
+    }
+
+
+    function changeSlide (n) {
+        slidesThrough(slideIndex += n);
+    }
+
+    next.addEventListener('click',() => {
+        changeSlide(1);
+    });
+    
+    prev.addEventListener('click',() => {
+        changeSlide(-1);
+    });
 
 });
